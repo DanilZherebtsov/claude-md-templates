@@ -57,18 +57,16 @@ methodology/     ← Инструкции для Claude: процедуры оп
   query.md              (процедура структурированного ответа)
   lint.md               (правила проверки целостности)
   page-conventions.md   (frontmatter, типы страниц, формат claim-evidence)
-  question-lifecycle.md (open/investigating/answered/abandoned)
+  question-lifecycle.md (поток вопроса: STATE → output → wiki)
   state-rules.md        (структура и правила обновления STATE.md)
   index-log-format.md   (формат index.md и log.md)
   bootstrap.md          (как развернуть структуру с нуля)
-output/          ← Рабочие артефакты Claude: черновики, экспорты, документы
+output/          ← Рабочие артефакты Claude: черновики, выписки, документы
                    для согласования. Не canonical, рабочий стол. Можно подчищать.
-                   Две обязательные подструктуры:
-  questions/
-    open/          (вопрос сформулирован, активной работы по нему нет)
-    investigating/ (в работе сейчас — обычно один-два вопроса)
-    answered/      (отвечено; ядро ответа ждёт извлечения в claims/ и synthesis/)
-    abandoned/     (отказались — оставляем для истории)
+                   Здесь же — рабочий файл активного вопроса (`q-NNN-<slug>.md`:
+                   заметки по ходу, черновик ответа). Когда ответ готов, он
+                   уезжает в wiki/claims/ + wiki/synthesis/, а файл — расходный.
+                   Повестка вопросов живёт не здесь, а в STATE.md.
   drafts/        (черновики финальных deliverable — статьи, отчёты, презентации)
 data/            ← Опционально. Датасеты, на которых строится исследование:
                    сырые (immutable), обработанные, выходные. Появляется по
@@ -145,7 +143,7 @@ Frontmatter, формат шаблонов по типам (включая claim
 - **Query** («что мы знаем про X», «какие свидетельства за/против Y», «сделай обзор по теме Z») → [methodology/query.md](methodology/query.md).
 - **Lint** («прогони lint», «проверь вики») → [methodology/lint.md](methodology/lint.md).
 
-**Жизненный цикл исследовательских вопросов** (open → investigating → answered → abandoned) — [methodology/question-lifecycle.md](methodology/question-lifecycle.md).
+**Поток исследовательских вопросов** (повестка в STATE → рабочий файл в output → выжимка в wiki) — [methodology/question-lifecycle.md](methodology/question-lifecycle.md).
 
 **Формат `index.md` и `log.md`** — [methodology/index-log-format.md](methodology/index-log-format.md).
 
@@ -198,7 +196,7 @@ Frontmatter, формат шаблонов по типам (включая claim
 
 Касается **рабочих артефактов Claude** — черновиков, отчётов, экспортов. Артефакты внутри `wiki/` живут по правилам [methodology/page-conventions.md](methodology/page-conventions.md). Вопросы — по правилам [methodology/question-lifecycle.md](methodology/question-lifecycle.md).
 
-- **Куда класть.** Всё, что Claude генерирует как deliverable, — в `output/`: черновики статей и отчётов в `output/drafts/`, активные вопросы в `output/questions/`. Не canonical, можно подчищать. **Не в `wiki/`** — там только компилированное знание. **Не в `data/`** — там сами датасеты, не интерпретации.
+- **Куда класть.** Всё, что Claude генерирует как deliverable, — в `output/`: черновики статей и отчётов в `output/drafts/`, рабочие файлы активных вопросов (`q-NNN-...`) — прямо в `output/`. Не canonical, можно подчищать. **Не в `wiki/`** — там только компилированное знание. **Не в `data/`** — там сами датасеты, не интерпретации.
 - **Имена файлов.** На русском, через подчёркивание, с датой когда уместно: `обзор_литературы_2026-05-25.md`.
 - **Даты.** В тексте — `ДД.ММ.ГГГГ`. В именах файлов и YAML — `YYYY-MM-DD`. Для источников из `raw/literature/` — префикс по дате добавления в проект; оригинальный год публикации — в метаданных файла.
 - **Цитаты.** Всегда с локализацией: `(Smith 2023, p. 47)` или `[interview-acme-2026-05-12.md, мин. 14:30]`. Без локализации — `[требует уточнения локации]`.
@@ -208,4 +206,4 @@ Frontmatter, формат шаблонов по типам (включая claim
 
 ## Bootstrap
 
-Если в проекте ещё нет `wiki/`, `output/questions/`, `STATE.md` — или они частично разрушены — Claude следует процедуре в [methodology/bootstrap.md](methodology/bootstrap.md). Нужно один раз при инициализации; повторно — только при восстановлении структуры.
+Если в проекте ещё нет `wiki/`, `output/`, `STATE.md` — или они частично разрушены — Claude следует процедуре в [methodology/bootstrap.md](methodology/bootstrap.md). Нужно один раз при инициализации; повторно — только при восстановлении структуры.
