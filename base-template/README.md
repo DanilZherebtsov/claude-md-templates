@@ -18,12 +18,16 @@
 |---|---|---|
 | **S1 «О проекте»** | 1–2 строки про дело + ограничения | saas: что строим + тех.выборы · research: главный вопрос + аудитория · business: что за дело + бюджет/юр.форма |
 | **S2 набор type-папок `wiki/`** | какие типы у класса (база даёт `decisions`/`discovery`/`synthesis`/`principles`; убрать лишнее, добавить своё) | saas: +`architecture/` · research: `claims/` вместо `discovery/` · business: +`entities/` |
-| **S3 центральный/доменный тип + его формат** | описать в page-conventions формат своего ключевого типа | saas: architecture (+`implementation:`) · research: claim-evidence chain · business: entity-карточка |
+| **S3 центральный/доменный тип + его формат** | описать формат ключевого типа в page-conventions; **при необходимости — свою lint-проверку** (`methodology/lint.md`, слот S3-lint) | saas: architecture (+`implementation:` + path-check в lint) · research: claim-evidence chain (+ локализация цитат в lint) · business: entity-карточка |
 | **S4 рабочий слой** | где живут рабочие файлы | saas: `specs/`+`src/`+`data/`+`output/` · research: `data/`+`src/`(опц)+`output/` · business: `documents/` |
 | **S5 разделы STATE** | фиксированный список разделов | saas/research: стадия/путь/в работе/следующее/завершено/блокеры/(7-й) · business: профиль/направления/неделя/следующее/обязательства/блокеры/завершено |
 | **S6 доменный lifecycle-файл** | поток единицы работы | saas: `spec-lifecycle.md` · research: `question-lifecycle.md` · business: `decision-lifecycle.md` |
 | **S7 правило авторитета** | кто побеждает при конфликте | классы с кодом: «код побеждает вики» · без кода: «источники побеждают вики» (+ research: «цитата с локализацией») |
 | **S8 доменные конвенции** | валюта, единицы, спец-форматы | business: рубли по умолчанию · research: цитаты `(Автор год, с.)` |
+
+### Про `raw/`
+
+base по умолчанию делает подпапки `raw/` динамическими (создаёт bootstrap, как в business). Но у классов со **стандартным набором источников** (research: `literature/`, `fieldwork/`; saas: `discovery/`, `decisions/`, `technical/`) — оставьте доменный стартовый набор подпапок в дереве CLAUDE.md + правило роста; полностью «с нуля» — только для классов без устойчивого набора.
 
 Всё, что не слот, — общее ядро: правится **только здесь**, потом раскатывается в производные (см. ниже).
 
