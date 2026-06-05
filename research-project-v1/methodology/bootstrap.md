@@ -18,7 +18,7 @@ Claude предлагает раскладку `raw/` под названные 
 
 - `raw/.gitkeep` + согласованные подпапки.
 - `wiki/` + 4 type-папки (`claims/`, `decisions/`, `synthesis/`, `principles/`, каждая с `.gitkeep`); `wiki/index.md` (`# Wiki Index`); `wiki/log.md` (`# Wiki Log` + `## [YYYY-MM-DD] bootstrap | инициализация`).
-- `output/.gitkeep` + `output/drafts/.gitkeep` (рабочие файлы вопросов `q-NNN-...` кладутся прямо в `output/` по факту).
+- `output/.gitkeep` — корень пустой; `drafts/` (финальные черновики) и рабочие файлы вопросов `q-NNN-...` создаются прямо в `output/` по факту.
 
 ## Шаг 4 — заполнить сопутствующие файлы из ответов интервью
 

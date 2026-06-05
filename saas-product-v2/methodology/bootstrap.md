@@ -18,7 +18,7 @@ Claude предлагает раскладку `raw/` под названные 
 
 - `raw/.gitkeep` + согласованные подпапки.
 - `wiki/` + 5 type-папок (`decisions/`, `architecture/`, `discovery/`, `synthesis/`, `principles/`, каждая с `.gitkeep`); `wiki/index.md` (`# Wiki Index`); `wiki/log.md` (`# Wiki Log` + `## [YYYY-MM-DD] bootstrap | инициализация`).
-- `output/.gitkeep` + `output/drafts/.gitkeep`; `specs/.gitkeep` (файлы спек `<feature>-NNN-...` появляются по факту, при взятии задачи в работу).
+- `output/.gitkeep` — корень пустой (`drafts/` — по факту); `specs/.gitkeep` (файлы спек `<feature>-NNN-...` — по факту, при взятии задачи в работу).
 
 ## Шаг 4 — заполнить сопутствующие файлы из ответов интервью
 
