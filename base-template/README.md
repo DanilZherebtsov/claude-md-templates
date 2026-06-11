@@ -19,7 +19,7 @@
 | **S1 «О проекте»** | 1–2 строки про дело + ограничения | saas: что строим + тех.выборы · research: главный вопрос + аудитория · business: что за дело + бюджет/юр.форма |
 | **S2 набор type-папок `wiki/`** | какие типы у класса (база даёт `decisions`/`discovery`/`synthesis`/`principles`; убрать лишнее, добавить своё) | saas: +`architecture/` · research: `claims/` вместо `discovery/` · business: +`entities/` |
 | **S3 центральный/доменный тип + его формат** | описать формат ключевого типа в page-conventions; **при необходимости — свою lint-проверку** (`methodology/lint.md`, слот S3-lint) | saas: architecture (+`implementation:` + path-check в lint) · research: claim-evidence chain (+ локализация цитат в lint) · business: entity-карточка |
-| **S4 рабочий слой** | где живут рабочие файлы | saas: `specs/`+`src/`+`data/`+`output/` · research: `data/`+`src/`(опц)+`output/` · business: `documents/` |
+| **S4 доп. рабочие слои** | `output/` есть у ВСЕХ классов (фиксированный корень рабочих файлов; внутри — любая структура по факту). Слот = **дополнительные** слои для классов с кодом | saas: +`specs/`+`src/`+`data/` · research: +`data/`+`src/`(опц) · business: только `output/` |
 | **S5 разделы STATE** | фиксированный список разделов | saas/research: стадия/путь/в работе/следующее/завершено/блокеры/(7-й) · business: профиль/направления/неделя/следующее/обязательства/блокеры/завершено |
 | **S6 доменный lifecycle-файл** | поток единицы работы | saas: `spec-lifecycle.md` · research: `question-lifecycle.md` · business: `decision-lifecycle.md` |
 | **S7 правило авторитета** | кто побеждает при конфликте | классы с кодом: «код побеждает вики» · без кода: «источники побеждают вики» (+ research: «цитата с локализацией») |
